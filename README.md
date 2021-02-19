@@ -1,6 +1,6 @@
 # collection
 
-Utility class that allows grouping and manipulation of datasets.
+Utility class that allows grouping and manipulation of datasets to the group and individual level.
 
 ## Installation
 
@@ -9,6 +9,8 @@ $ npm install guillemsegura/collection
 ```
 
 ## Use
+
+Creation:
 
 ```
 const data = [
@@ -19,18 +21,27 @@ const data = [
 ];
 
 const collection = new Collection(data);
+```
 
-// group by field `group`
+Group by field `group`:
+
+```
 collection.group("group");
+```
 
-// calculate aggregated value within each group
+Calculate aggregated value within each group:
+
+```
 collection.compose((previous, current) => {
 	current.aggregatedValue = previous ? current.value + previous.value : current.value;
 });
+```
 
+Returns:
+
+```
 console.log(collection.get());
 
-// Returns:
 // [
 //    { id: "A", group: "1", value: 1, aggregatedValue: 1 },
 //    { id: "C", group: "1", value: 3, aggregatedValue: 4 },
