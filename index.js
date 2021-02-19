@@ -60,4 +60,4 @@ const findLeaves = (tree) => {
   return leaves;
 };
 
-export default Collection;
+module.exports = Collection;
