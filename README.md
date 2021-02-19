@@ -58,8 +58,8 @@ const data = [
 const collection = new Collection(data)
 	.group("group")
 	.compose((previous, current, group, groupIndex) => {
-      current.groupIndex = groupIndex;
-  })
+      		current.groupIndex = groupIndex;
+  	})
 	.group("x")
 	.compose((previous, current) => {
 		current.aggregatedValue = previous
