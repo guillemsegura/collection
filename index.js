@@ -3,7 +3,7 @@
 const { cloneDeep } = require("lodash");
 
 /**
- *
+ * Utility class that allows grouping and manipulation of datasets.
  */
 class Collection {
   constructor(data) {
