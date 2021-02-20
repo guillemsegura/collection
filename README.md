@@ -27,9 +27,7 @@ collection.group("group");
 
 // Calculate aggregated value within each group:
 collection.compose((previous, current) => {
-  current.aggregatedValue = previous
-    ? current.value + previous.value
-    : current.value;
+	current.aggregatedValue = previous ? current.value + previous.value : current.value;
 });
 
 // Returns:
@@ -46,28 +44,28 @@ console.log(collection.get());
 
 ```
 const data = [
-  { id: "A", group: "1", value: 1, x: 0 },
-  { id: "B", group: "2", value: 2, x: 0 },
-  { id: "C", group: "1", value: 3, x: 0 },
-  { id: "D", group: "2", value: 4, x: 0 },
-  { id: "E", group: "1", value: 5, x: 1 },
-  { id: "F", group: "2", value: 6, x: 1 },
-  { id: "G", group: "1", value: 7, x: 1 },
-  { id: "H", group: "2", value: 8, x: 1 },
+    { id: "A", group: "1", value: 1, x: 0 },
+    { id: "B", group: "2", value: 2, x: 0 },
+    { id: "C", group: "1", value: 3, x: 0 },
+    { id: "D", group: "2", value: 4, x: 0 },
+    { id: "E", group: "1", value: 5, x: 1 },
+    { id: "F", group: "2", value: 6, x: 1 },
+    { id: "G", group: "1", value: 7, x: 1 },
+    { id: "H", group: "2", value: 8, x: 1 },
 ];
 
 // Creation, grouping and calculations:
 const collection = new Collection(data)
-  .group("group")
-  .compose((previous, current, group, groupIndex) => {
-    current.groupIndex = groupIndex;
-  })
-  .group("x")
-  .compose((previous, current) => {
-    current.aggregatedValue = previous
-      ? current.value + previous.value
-      : current.value;
-  });
+	.group("group")
+	.compose((previous, current, group, groupIndex) => {
+      		current.groupIndex = groupIndex;
+  	})
+	.group("x")
+	.compose((previous, current) => {
+		current.aggregatedValue = previous
+			? current.value + previous.value
+			: current.value;
+	});
 
 // Returns:
 console.log(collection.get());
